@@ -21,6 +21,7 @@ const FileUpload = () => {
     formData.append('file', file);
 
     try {
+      console.log("trying to send the file")
       const res = await axios.post('/uploads', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
