@@ -1,4 +1,5 @@
 backend/node_modules/*
 backend/uploads/*
 backend/.env
+backend/rahul.txt
 .vscode
