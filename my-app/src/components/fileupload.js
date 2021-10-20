@@ -2,13 +2,19 @@ import React, { Fragment, useState } from 'react';
 import Message from './message';
 import Progress from './progress';
 import axios from 'axios';
+import { useHistory } from "react-router-dom"
 
 const FileUpload = () => {
+  const history=useHistory(); 
   const [file, setFile] = useState('');
   const [filename, setFilename] = useState('Choose File');
   const [uploadedFile, setUploadedFile] = useState({});
   const [message, setMessage] = useState('');
   const [uploadPercentage, setUploadPercentage] = useState(0);
+
+  const gotomyfile=()=>{
+    history.push('/getfiles')
+  }
 
   const onChange = e => {
     setFile(e.target.files[0]);
@@ -17,8 +23,10 @@ const FileUpload = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
+    console.log('id',localStorage.getItem('userid'))
     const formData = new FormData();
     formData.append('file', file);
+    formData.append('id', localStorage.getItem('userid'));
 
     try {
       console.log("trying to send the file")
@@ -85,6 +93,7 @@ const FileUpload = () => {
           </div>
         </div>
       ) : null}
+      <button onClick={gotomyfile} className='btn btn-primary btn-block mt-4'>My files</button>
     </Fragment>
   );
 };

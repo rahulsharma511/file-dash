@@ -22,4 +22,18 @@ function uploadfile(file){
     }
     return awsconnect.upload(uploadparams).promise()
 }
+function deletefile(filename){
+    console.log(filename)
+    const deleteparams={
+        Bucket:bucketname,
+        Key:filename
+    }
+    awsconnect.deleteObject(deleteparams, function(err, data) {
+        if (err) 
+          console.log(err, err.stack);  // error
+        else    
+         console.log("File Successfully Deleted!");
+      });
+}
 exports.uploadfile= uploadfile
+exports.deletefile = deletefile
