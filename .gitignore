@@ -1,5 +1,9 @@
 backend/node_modules/*
 backend/uploads/*
+<<<<<<< Updated upstream
 backend/.env
 backend/rahul.txt
+=======
+backend/env
+>>>>>>> Stashed changes
 .vscode
