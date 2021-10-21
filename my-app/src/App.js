@@ -5,6 +5,7 @@ import Login from "./components/Login"
 import { Container } from "react-bootstrap"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import Getfiles from './components/Getfiles';
+import Home from './components/Home.js'
 
 // import Login from "./components/Login"
 // import PrivateRoute from "./PrivateRoute"
@@ -16,23 +17,26 @@ const App=()=> {
   
     <div>
       <Switch>
+        <Route exact path='/'>
+          <Home/>
+        </Route>
         <Route path='/signup'>
-      <Signup/>
-      </Route>
-      <Route  path='/login'>
-      <Login/>
-      </Route>
-      <Route path='/fileupload'>
-       <div className='container mt-4'>
-          <h4 className='display-4 text-center mb-4'>
-            <i className='fab fa-react' /> File Dash
-           </h4>
-           <FileUpload />
-        </div>
-      </Route>
-      <Route path='/getfiles'>
-        <Getfiles />
-      </Route>
+            <Signup/>
+        </Route>
+        <Route  path='/login'>
+          <Login/>
+        </Route>
+        <Route path='/fileupload'>
+        <div className='container mt-4'>
+            <h4 className='display-4 text-center mb-4'>
+              <i className='fab fa-react' /> File Dash
+            </h4>
+            <FileUpload />
+          </div>
+        </Route>
+        <Route path='/getfiles'>
+          <Getfiles />
+        </Route>
       </Switch>
     </div>
     
